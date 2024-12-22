@@ -45,7 +45,7 @@ In this design, a **balanced amplifier** is used instead of a conventional opera
 - **Improved Stability:** Enhances the circuit's overall robustness against process and temperature variations.
 - **Superior Power Supply Rejection (PSR):** Reduces the influence of power supply fluctuations on the reference voltage.
 
-The detailed design and analysis of the balanced amplifier are provided in the repository under the documentation section. 
+The detailed design and analysis of the balanced amplifier are provided in the repository under the documentation section [here](https://github.com/HarshitSri-Analog/Bandgap-Reference-Bias-Circuit/tree/main/Balanced%20Ampr). 
 
 ### Specifications of the Balanced Amplifier
 | **Parameter**       | **Value**       |
@@ -99,8 +99,8 @@ The designed Bandgap Reference circuit demonstrates exceptional performance, ach
 | **Metric**                   | **Value**              |
 |------------------------------|-----------------------|
 | Reference Voltage (V_ref)    | 1.2V                 |
-| Temperature Variation of V_ref | 1.68 mV across the specified temperature range |
-| Power Supply Variation of V_ref | 12 mV across supply variations |
+| Temperature Variation of V_ref | 1.68 mV (-40 to 125 degree celsius) |
+| Power Supply Variation of V_ref | 12 mV (1.8 to 3.6 Volts) |
 | Temperature Coefficient (TempCo) | 8.905 ppm/°C       |
 
 These results highlight the circuit’s stability and reliability in maintaining a constant reference voltage under varying conditions.
