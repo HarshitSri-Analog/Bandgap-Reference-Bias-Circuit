@@ -24,6 +24,8 @@ A Bandgap Reference (BGR) circuit generates a voltage reference that is independ
 
 Temperature variations can cause significant drift in voltage levels. A BGR circuit addresses this by balancing temperature-dependent voltages to produce a consistent output across the operating range.
 
+***Fun Fact**: This bias circuit is called the Bandgap Reference Bias circuit because the constant reference voltage (Vref) obtained, approximately 1.2V, is nearly equal to the energy bandgap of silicon.*
+
 ## Understanding PTAT and CTAT Voltages
 To achieve temperature independence, BGR circuits rely on two temperature-dependent voltage components:
 
@@ -84,7 +86,7 @@ This hybrid design is optimized for compactness, low power consumption, and robu
 
 | ![BGR final](https://github.com/HarshitSri-Analog/Bandgap-Reference-Bias-Circuit/blob/main/Images/BGR%20Final.png) | 
 | :---: | 
-| Fig 4: BGR using Current Mirror & Op-Amp (Final optimised deisgn) |
+| Fig 4: BGR using Current Mirror & Op-Amp (Final optimized deisgn) |
 
 ## Importance of the Startup Circuit
 A BGR circuit requires a **startup circuit** to ensure proper initialization. Without this, the circuit could remain in an undesirable zero-current state during power-up, failing to generate the reference voltage. 
@@ -115,4 +117,5 @@ This repository includes:
 - **Balanced Amplifier Report:** A detailed analysis of the balanced amplifier design and its performance specifications.
 
 Feel free to explore the repository for insights into the design and implementation of Bandgap Reference circuits. Contributions and feedback are welcome!
+***If you find this repository helpful, please consider giving it a ⭐!***
 
