@@ -17,6 +17,10 @@ To achieve temperature independence, BGR circuits rely on two temperature-depend
 
 - **CTAT (Complementary to Absolute Temperature):** This component decreases linearly with temperature and is generated using the base-emitter voltage (V_BE) of a bipolar junction transistor (BJT).
 
+| ![PTAT-CTAT]() | 
+| :---: | 
+| Fig 1: PTAT and CTAT behaviour |
+
 By combining the PTAT and CTAT components in appropriate proportions, the temperature dependencies cancel each other out, resulting in a stable reference voltage.
 
 ## Types of Bandgap Reference Circuits
@@ -24,8 +28,16 @@ By combining the PTAT and CTAT components in appropriate proportions, the temper
 ### 1. BGR with Current Mirror
 This implementation uses a current mirror to combine PTAT and CTAT currents. The currents are mirrored and converted into voltages, which are then summed to generate the stable reference voltage. This approach is relatively simple and compact but may require precise current scaling to ensure accurate cancellation of temperature variations.
 
+| ![BGR current mirror]() | 
+| :---: | 
+| Fig 2: BGR using Current Mirror |
+
 ### 2. BGR with Op-Amp
 This design incorporates an operational amplifier (op-amp) to achieve higher precision. The op-amp enforces proper feedback in the circuit, ensuring accurate voltage levels and improved stability by minimizing mismatches. The op-amp ensures equal voltages across the PTAT and CTAT branches, allowing for precise addition of the temperature-dependent components.
+
+| ![BGR OPAMP]() | 
+| :---: | 
+| Fig 3: BGR using Op-Amp |
 
 ## Final Circuit: BGR with Op-Amp and Current Mirror
 The final design combines the benefits of both the current mirror and op-amp approaches. Key features include:
@@ -34,6 +46,10 @@ The final design combines the benefits of both the current mirror and op-amp app
 - **Op-Amp:** Enhances stability and precision through feedback, ensuring the circuit operates consistently across all conditions.
 
 This hybrid design is optimized for compactness, low power consumption, and robustness, making it suitable for integration in modern systems.
+
+| ![BGR final]() | 
+| :---: | 
+| Fig 2: BGR using Current Mirror & Op-Amp (Final optimised deisgn) |
 
 ## Importance of the Startup Circuit
 A BGR circuit requires a **startup circuit** to ensure proper initialization. Without this, the circuit could remain in an undesirable zero-current state during power-up, failing to generate the reference voltage. 
@@ -46,8 +62,8 @@ The startup circuit:
 The designed Bandgap Reference circuit demonstrates exceptional performance, achieving the following metrics:
 
 - **Reference Voltage (V_ref):** 1.2V
-- **Temperature Variation of V_ref:** 1.68mV across the specified temperature range
-- **Power Supply Variation of V_ref:** 12mV across supply variations
+- **Temperature Variation of V_ref:** 1.68mV across the specified temperature range (-40 to 125 degree celsius)
+- **Power Supply Variation of V_ref:** 12mV across supply variations (1.8 V to 3.6 V)
 - **Temperature Coefficient (TempCo):** 8.905 ppm/°C
 
 These results highlight the circuit’s stability and reliability in maintaining a constant reference voltage under varying conditions.
