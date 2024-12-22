@@ -17,7 +17,7 @@ To achieve temperature independence, BGR circuits rely on two temperature-depend
 
 - **CTAT (Complementary to Absolute Temperature):** This component decreases linearly with temperature and is generated using the base-emitter voltage (V_BE) of a bipolar junction transistor (BJT).
 
-| ![PTAT-CTAT]() | 
+| ![PTAT-CTAT](https://github.com/HarshitSri-Analog/Bandgap-Reference-Bias-Circuit/blob/main/Images/PTAT%20and%20CTAT.png) | 
 | :---: | 
 | Fig 1: PTAT and CTAT behaviour |
 
@@ -28,7 +28,7 @@ By combining the PTAT and CTAT components in appropriate proportions, the temper
 ### 1. BGR with Current Mirror
 This implementation uses a current mirror to combine PTAT and CTAT currents. The currents are mirrored and converted into voltages, which are then summed to generate the stable reference voltage. This approach is relatively simple and compact but may require precise current scaling to ensure accurate cancellation of temperature variations.
 
-| ![BGR current mirror]() | 
+| ![BGR current mirror](https://github.com/HarshitSri-Analog/Bandgap-Reference-Bias-Circuit/blob/main/Images/BGR%20Current%20Mirror.png) | 
 | :---: | 
 | Fig 2: BGR using Current Mirror |
 
@@ -47,9 +47,9 @@ The final design combines the benefits of both the current mirror and op-amp app
 
 This hybrid design is optimized for compactness, low power consumption, and robustness, making it suitable for integration in modern systems.
 
-| ![BGR final]() | 
+| ![BGR final](https://github.com/HarshitSri-Analog/Bandgap-Reference-Bias-Circuit/blob/main/Images/BGR%20Final.png) | 
 | :---: | 
-| Fig 2: BGR using Current Mirror & Op-Amp (Final optimised deisgn) |
+| Fig 4: BGR using Current Mirror & Op-Amp (Final optimised deisgn) |
 
 ## Importance of the Startup Circuit
 A BGR circuit requires a **startup circuit** to ensure proper initialization. Without this, the circuit could remain in an undesirable zero-current state during power-up, failing to generate the reference voltage. 
