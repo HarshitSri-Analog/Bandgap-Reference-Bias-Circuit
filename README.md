@@ -1,7 +1,10 @@
 # Bandgap Reference (BGR) Bias Circuit
 
+A Bandgap Reference (BGR) circuit is a fundamental building block in integrated circuits, designed to provide a stable reference voltage that remains constant across variations in temperature, power supply, and fabrication process. This makes it an essential component in analog, mixed-signal, and digital systems. 
+
+This repository documents the design, analysis, and simulation of a BGR bias circuit, providing detailed explanations of its principles, different implementations, and final results achieved through simulations.
+
 ## Table of Contents
-- [Overview](#overview)
 - [What is a Bandgap Reference (BGR) and Why Is It Needed?](#what-is-a-bandgap-reference-bgr-and-why-is-it-needed)
 - [Understanding PTAT and CTAT Voltages](#understanding-ptat-and-ctat-voltages)
 - [Balanced Amplifier in BGR Circuit](#balanced-amplifier-in-bgr-circuit)
@@ -13,11 +16,6 @@
 - [Importance of the Startup Circuit](#importance-of-the-startup-circuit)
 - [Results Achieved](#results-achieved)
 - [Repository Contents](#repository-contents)
-
-## Overview
-A Bandgap Reference (BGR) circuit is a fundamental building block in integrated circuits, designed to provide a stable reference voltage that remains constant across variations in temperature, power supply, and fabrication process. This makes it an essential component in analog, mixed-signal, and digital systems. 
-
-This repository documents the design, analysis, and simulation of a BGR bias circuit, providing detailed explanations of its principles, different implementations, and final results achieved through simulations.
 
 ## What is a Bandgap Reference (BGR) and Why Is It Needed?
 A Bandgap Reference (BGR) circuit generates a voltage reference that is independent of temperature, power supply, and process variations. It typically provides a reference voltage of approximately 1.2V for silicon-based processes. This stability is crucial for ensuring consistent performance in circuits like analog-to-digital converters (ADCs), digital-to-analog converters (DACs), voltage regulators, and other systems relying on precise voltage references.
