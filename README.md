@@ -35,6 +35,7 @@ To achieve temperature independence, BGR circuits rely on two temperature-depend
 
 By combining the PTAT and CTAT components in appropriate proportions, the temperature dependencies cancel each other out, resulting in a stable reference voltage.
 
+***Note**: We cannot just add any PTAT with any CTAT to get a constant reference voltage, because they both need to cancel out each other completely in order to give a constant voltage.*
 
 | ![PTAT-CTAT](https://github.com/HarshitSri-Analog/Bandgap-Reference-Bias-Circuit/blob/main/Images/PTAT%20and%20CTAT.png) | 
 | :---: | 
@@ -89,21 +90,25 @@ This hybrid design is optimized for compactness, low power consumption, and robu
 | Fig 4: BGR using Current Mirror & Op-Amp (Final optimized deisgn) |
 
 ## Importance of the Startup Circuit
-A BGR circuit requires a **startup circuit** to ensure proper initialization. Without this, the circuit could remain in an undesirable zero-current state during power-up, failing to generate the reference voltage. 
+A BGR circuit requires a **startup circuit** to ensure proper initialization. Without this, the circuit could remain in an undesirable zero-current state during power-up, failing to generate the reference voltage. There are 2 main components of any startup circuit:
+1. The component that disturbs the zero current condition either by pulling a node to +Vdd or gnd.
+2. Another component disconnects the first one from the main circuit after the main circuit begins operating in its normal current state.
 
 The startup circuit:
 1. Drives the circuit out of the zero-current state during initialization.
 2. Automatically deactivates once the circuit achieves its normal operating state, minimizing power consumption and interference.
+
+***Note: Any self-bias circuitry requires a startup circuit to ensure it always operates in its normal current state, and this circuit is no exception.***
 
 ## Results Achieved
 The designed Bandgap Reference circuit demonstrates exceptional performance, achieving the following metrics:
 
 | **Metric**                   | **Value**              |
 |------------------------------|-----------------------|
-| Reference Voltage (V_ref)    | 1.2V                 |
-| Temperature Variation of V_ref | 1.68 mV (-40 to 125 degree celsius) |
-| Power Supply Variation of V_ref | 12 mV (1.8 to 3.6 Volts) |
-| Temperature Coefficient (TempCo) | 8.905 ppm/°C       |
+| Reference Voltage (Vref)    | 1.2V                 |
+| Temperature Variation of Vref | 1.68 mV (-40 to 125 degree celsius) |
+| Power Supply Variation of Vref | 12 mV (1.8 to 3.6 Volts) |
+| Temperature Coefficient ([TempCo](https://www.allaboutcircuits.com/technical-articles/understanding-the-temperature-coefficient-of-a-voltage-reference/)) | 8.905 ppm/°C       |
 
 These results highlight the circuit’s stability and reliability in maintaining a constant reference voltage under varying conditions.
 
