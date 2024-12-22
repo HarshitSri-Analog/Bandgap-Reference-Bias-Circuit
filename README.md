@@ -1,5 +1,19 @@
 # Bandgap Reference (BGR) Bias Circuit
 
+## Table of Contents
+- [Overview](#overview)
+- [What is a Bandgap Reference (BGR) and Why Is It Needed?](#what-is-a-bandgap-reference-bgr-and-why-is-it-needed)
+- [Understanding PTAT and CTAT Voltages](#understanding-ptat-and-ctat-voltages)
+- [Balanced Amplifier in BGR Circuit](#balanced-amplifier-in-bgr-circuit)
+  - [Specifications of the Balanced Amplifier](#specifications-of-the-balanced-amplifier)
+- [Types of Bandgap Reference Circuits](#types-of-bandgap-reference-circuits)
+  - [1. BGR with Current Mirror](#1-bgr-with-current-mirror)
+  - [2. BGR with Op-Amp](#2-bgr-with-op-amp)
+- [Final Circuit: BGR with Balanced Amplifier and Current Mirror](#final-circuit-bgr-with-balanced-amplifier-and-current-mirror)
+- [Importance of the Startup Circuit](#importance-of-the-startup-circuit)
+- [Results Achieved](#results-achieved)
+- [Repository Contents](#repository-contents)
+
 ## Overview
 A Bandgap Reference (BGR) circuit is a fundamental building block in integrated circuits, designed to provide a stable reference voltage that remains constant across variations in temperature, power supply, and fabrication process. This makes it an essential component in analog, mixed-signal, and digital systems. 
 
@@ -17,16 +31,37 @@ To achieve temperature independence, BGR circuits rely on two temperature-depend
 
 - **CTAT (Complementary to Absolute Temperature):** This component decreases linearly with temperature and is generated using the base-emitter voltage (V_BE) of a bipolar junction transistor (BJT).
 
+By combining the PTAT and CTAT components in appropriate proportions, the temperature dependencies cancel each other out, resulting in a stable reference voltage.
+
+
 | ![PTAT-CTAT](https://github.com/HarshitSri-Analog/Bandgap-Reference-Bias-Circuit/blob/main/Images/PTAT%20and%20CTAT.png) | 
 | :---: | 
 | Fig 1: PTAT and CTAT behaviour |
 
-By combining the PTAT and CTAT components in appropriate proportions, the temperature dependencies cancel each other out, resulting in a stable reference voltage.
+## Balanced Amplifier in BGR Circuit
+In this design, a **balanced amplifier** is used instead of a conventional operational amplifier. The balanced amplifier offers several advantages, including:
+
+- **Higher Gain:** Ensures better precision in the feedback loop.
+- **Improved Stability:** Enhances the circuit's overall robustness against process and temperature variations.
+- **Superior Power Supply Rejection (PSR):** Reduces the influence of power supply fluctuations on the reference voltage.
+
+The detailed design and analysis of the balanced amplifier are provided in the repository under the documentation section. 
+
+### Specifications of the Balanced Amplifier
+| **Parameter**       | **Value**       |
+|---------------------|-----------------|
+| Voltage Gain        | 55 dB          |
+| Unity Gain Bandwidth (UGB) | 13.42 MHz    |
+| Phase Margin        | 69.42 degrees  |
+| Power Consumption   | 0.28 mW        |
+
+This amplifier's performance significantly contributes to the accuracy and stability of the BGR circuit.
 
 ## Types of Bandgap Reference Circuits
 
 ### 1. BGR with Current Mirror
 This implementation uses a current mirror to combine PTAT and CTAT currents. The currents are mirrored and converted into voltages, which are then summed to generate the stable reference voltage. This approach is relatively simple and compact but may require precise current scaling to ensure accurate cancellation of temperature variations.
+
 
 | ![BGR current mirror](https://github.com/HarshitSri-Analog/Bandgap-Reference-Bias-Circuit/blob/main/Images/BGR%20Current%20Mirror.png) | 
 | :---: | 
@@ -35,15 +70,15 @@ This implementation uses a current mirror to combine PTAT and CTAT currents. The
 ### 2. BGR with Op-Amp
 This design incorporates an operational amplifier (op-amp) to achieve higher precision. The op-amp enforces proper feedback in the circuit, ensuring accurate voltage levels and improved stability by minimizing mismatches. The op-amp ensures equal voltages across the PTAT and CTAT branches, allowing for precise addition of the temperature-dependent components.
 
-| ![BGR OPAMP]() | 
+| ![BGR OpAmp](https://github.com/HarshitSri-Analog/Bandgap-Reference-Bias-Circuit/blob/87618c8f63555c633de72ab075af02026f515996/Images/BGR%20opamp.png) | 
 | :---: | 
 | Fig 3: BGR using Op-Amp |
 
-## Final Circuit: BGR with Op-Amp and Current Mirror
-The final design combines the benefits of both the current mirror and op-amp approaches. Key features include:
+## Final Circuit: BGR with Balanced Amplifier and Current Mirror
+The final design combines the benefits of both the current mirror and the balanced amplifier. Key features include:
 
 - **Current Mirror:** Ensures accurate current scaling and improves matching, leading to better cancellation of temperature-dependent components.
-- **Op-Amp:** Enhances stability and precision through feedback, ensuring the circuit operates consistently across all conditions.
+- **Balanced Amplifier:** Enhances stability, precision, and power supply rejection, ensuring the circuit operates consistently across all conditions.
 
 This hybrid design is optimized for compactness, low power consumption, and robustness, making it suitable for integration in modern systems.
 
@@ -61,10 +96,12 @@ The startup circuit:
 ## Results Achieved
 The designed Bandgap Reference circuit demonstrates exceptional performance, achieving the following metrics:
 
-- **Reference Voltage (V_ref):** 1.2V
-- **Temperature Variation of V_ref:** 1.68mV across the specified temperature range (-40 to 125 degree celsius)
-- **Power Supply Variation of V_ref:** 12mV across supply variations (1.8 V to 3.6 V)
-- **Temperature Coefficient (TempCo):** 8.905 ppm/°C
+| **Metric**                   | **Value**              |
+|------------------------------|-----------------------|
+| Reference Voltage (V_ref)    | 1.2V                 |
+| Temperature Variation of V_ref | 1.68 mV across the specified temperature range |
+| Power Supply Variation of V_ref | 12 mV across supply variations |
+| Temperature Coefficient (TempCo) | 8.905 ppm/°C       |
 
 These results highlight the circuit’s stability and reliability in maintaining a constant reference voltage under varying conditions.
 
@@ -75,5 +112,7 @@ This repository includes:
 - **Schematics:** Detailed circuit diagrams for each implementation.
 - **Simulation Results:** Graphs and data showcasing the stability of the reference voltage across temperature and power supply variations.
 - **Documentation:** Step-by-step explanations of the design process and methodologies.
+- **Balanced Amplifier Report:** A detailed analysis of the balanced amplifier design and its performance specifications.
 
 Feel free to explore the repository for insights into the design and implementation of Bandgap Reference circuits. Contributions and feedback are welcome!
+
