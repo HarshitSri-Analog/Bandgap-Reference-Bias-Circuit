@@ -16,6 +16,7 @@ This repository documents the design, analysis, and simulation of a BGR bias cir
 - [Importance of the Startup Circuit](#importance-of-the-startup-circuit)
 - [Results Achieved](#results-achieved)
 - [Repository Contents](#repository-contents)
+- [Acknowledgements](#Acknowledgements)
 
 ## What is a Bandgap Reference (BGR) and Why Is It Needed?
 A Bandgap Reference (BGR) circuit generates a voltage reference that is independent of temperature, power supply, and process variations. It typically provides a reference voltage of approximately 1.2V for silicon-based processes. This stability is crucial for ensuring consistent performance in circuits like analog-to-digital converters (ADCs), digital-to-analog converters (DACs), voltage regulators, and other systems relying on precise voltage references.
@@ -119,6 +120,11 @@ This repository includes:
 - **Documentation:** Step-by-step explanations of the design process and methodologies.
 - **Balanced Amplifier Report:** A detailed analysis of the balanced amplifier design and its performance specifications.
 
+## Acknowledgments
+
+Special thanks to [Cadence Virtuoso](https://www.cadence.com/en_US/home/tools/custom-ic-analog-rf-design/virtuoso-studio.html) team for providing an advanced platform for analog design & simulation. Additionally, gratitude is extended to Hafeez kt sir for providing such an informative series on [Designing BGR Circuit](https://youtube.com/playlist?list=PLK2eyR1C9gjp5tk5j7eTYU_Th4IL_H83T&si=2gZ1IwaE5bykQVHJ). 
+
 Feel free to explore the repository for insights into the design and implementation of Bandgap Reference circuits. Contributions and feedback are welcome!
+
 ***If you find this repository helpful, please consider giving it a ⭐!***
 
